@@ -19,7 +19,7 @@ def car_detail(request, pk):
 
 def add_car(request):
     if request.method == 'POST':
-        form = CarForm(request.POST, request.FILES)  # Use request.FILES to handle file uploads
+        form = CarForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('car_list')

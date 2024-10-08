@@ -1,16 +1,12 @@
-# Python
 *.pyc
 __pycache__/
 
-# Django
 *.sqlite3
 *.log
 /staticfiles/
 
-# Docker
 *.dockerignore
 /venv/
 /env/
 
-# System files
 .DS_Store

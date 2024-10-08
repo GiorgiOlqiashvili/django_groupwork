@@ -79,7 +79,7 @@ button:hover {
     max-width: 100%;
     max-height: 300px;
     border-radius: 5px;
-    object-fit: cover; /* Ensures the image is nicely cropped */
+    object-fit: cover;
 }
 
 .car-info {
