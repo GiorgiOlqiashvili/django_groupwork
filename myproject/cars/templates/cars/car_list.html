@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car List</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'cars/style.css' %}">
+</head>
+<body>
+    <h1>Car List</h1>
+
+    <!-- Search Form -->
+    <form method="GET" action="">
+        <input type="text" name="q" placeholder="Search cars..." value="{{ request.GET.q }}">
+        <button type="submit">Search</button>
+    </form>
+
+<div class="car-container">
+    {% for car in cars %}
+        <div class="car-block">
+            {% if car.image %}
+                <img src="{{ car.image.url }}" alt="{{ car.name }}">
+            {% else %}
+                <img src="{% static 'cars/default_car_image.jpg' %}" alt="Default Car Image">
+            {% endif %}
+            <div class="car-info">
+                <h2><a href="{% url 'car_detail' car.pk %}">{{ car.name }}</a></h2>
+                <p>Year: {{ car.year }}</p>
+                <p>Price: ${{ car.price }}</p>
+            </div>
+        </div>
+    {% empty %}
+        <p>No cars available.</p>
+    {% endfor %}
+</div>
+
+
+    <a href="{% url 'add_car' %}">Add a New Car</a>
+</body>
+</html>
+
